@@ -1,0 +1,5 @@
+INDEX VERSION 1.4+C:\Users\김영현\OneDrive\바탕 화면\시험준비\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3313188624.index
+2968527515.index
+3376892514.index
+4106644949.index

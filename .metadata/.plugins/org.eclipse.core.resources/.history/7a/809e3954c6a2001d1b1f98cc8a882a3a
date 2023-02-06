@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.util.*" %>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "model.ListDto" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%
+	String path = request.getContextPath();
+	ArrayList<ListDto> list = (ArrayList<ListDto>)request.getAttribute("list");
+%>
+<link href="<%=path %>/css/list.css" rel="stylesheet">
+<link href="<%=path %>/css/index.css" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<ol>
+			<li><a href="CU/list">조회</a></li>
+			<li><a href="CU/reg">등록</a></li>
+		</ol>
+	</nav>
+	<table>
+		
+	</table>
+</body>
+</html>

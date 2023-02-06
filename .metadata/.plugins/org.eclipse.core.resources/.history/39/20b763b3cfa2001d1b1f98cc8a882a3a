@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<%
+	String path = request.getContextPath();
+%>
+<link href="<%=path %>/css/index.css" rel="stylesheet">
+<link href="<%=path %>/css/reg.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>연습</h1>
+	</header>
+	<nav>
+		<ol>
+			<li><a href="HY/list">조회</a></li>
+			<li><a href="/reg">등록</a></li>
+		</ol>
+	</nav>
+	<section>
+		<table>
+			<caption>수강과목 등록</caption>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="s_id">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="s_name">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="t_id">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="s_grade">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="weekday">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="start_h">
+			</tr>
+			<tr>
+				<td class="main"></td>
+				<input type="text" name="end_h">
+			</tr>
+			<tr>
+				<td class="main" colsphan="2">
+					<button>목록</button>
+					<button>저장</button>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<footer>
+		hi
+	</footer>
+</body>
+</html>
