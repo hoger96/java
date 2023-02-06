@@ -1,0 +1,18 @@
+@charset "UTF-8";
+table{
+	width:700px;
+	margin:50px auto;
+}
+table,td{
+	border:1px solid black;
+	text-align:center;
+}
+
+.main{
+	font-weight: bold;
+}
+
+.btn{
+	color:black;
+	text-decoration: none;
+}
