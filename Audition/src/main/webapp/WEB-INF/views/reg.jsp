@@ -10,6 +10,12 @@
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/reg.css" rel="stylesheet">
+<script>
+function save(){
+	let frm = document.frm;
+	frm.submit();
+}
+</script>
 </head>
 <body>
 <header>HY라우드 오디션 VER 1.0</header>
@@ -23,7 +29,7 @@
 	</ol>
 </nav>
 <section>
-<form name="frm" action="/reg" method="post">
+<form name="frm" action="<%=path%>/reg.go" method="post">
 	<table>
 		<caption>참가자 등록</caption>
 		<tr>
@@ -66,7 +72,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" class="main">
-				<button>저장</button>
+				<button onclick="save()">저장</button>
 				<button>취소</button>
 			</td>
 		</tr>

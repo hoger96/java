@@ -125,6 +125,7 @@ public class LectureDao {
 				dto.setStart_h(rs.getString(6));
 				dto.setEnd_h(rs.getString(7));
 			}
+			
 			rs.close();
 			pst.close();
 			con.close();

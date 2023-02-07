@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class AuditionService {
 
 	AuditionDao dao;
@@ -15,5 +17,17 @@ public class AuditionService {
 	
 	public void insert(PersonDto dto) {
 		dao.insert(dto);
+	}
+	
+	public ArrayList<PersonListDto> selectPersonList(){
+		return dao.selectPersonList();
+	}
+	
+	public ArrayList<ScoreListDto> selectScoreList(){
+		return dao.selectScoreList();
+	}
+	
+	public ArrayList<RankListDto> selectRankList(){
+		return dao.selectRankList();
 	}
 }
