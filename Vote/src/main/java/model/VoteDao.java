@@ -147,4 +147,30 @@ public class VoteDao {
 		return list;
 	}
 	
+	public void insert(RegDto dto) {
+		
+		dbCon();
+		String sql = " insert into tbl_vote values(?,?,?,?,?,?) ";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			
+			pst.setString(1, dto.getV_jumin());
+			pst.setString(2, dto.getV_name());
+			pst.setString(3, dto.getV_area());
+			pst.setString(4, dto.getV_time());
+			pst.setString(5, dto.getV_confirm());
+			pst.setString(6, dto.getN_no());
+			
+			pst.executeUpdate();
+			
+			pst.close();
+			con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

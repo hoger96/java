@@ -26,4 +26,8 @@ public class VoteService {
 	public ArrayList<MemberDto> selectMemberList(){
 		return dao.selectMemberList();
 	}
+	
+	public void insert(RegDto dto) {
+		dao.insert(dto);
+	}
 }
