@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="model.SaleonDto" %>
+<%@ page import="model.SoldoutDto" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <%
 	String path = request.getContextPath();	
-	ArrayList<SaleonDto> list = (ArrayList<SaleonDto>)request.getAttribute("list");
+	ArrayList<SoldoutDto> list = (ArrayList<SoldoutDto>)request.getAttribute("list");
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/list.css" rel="stylesheet">
@@ -31,25 +31,23 @@
 </nav>
 <section>
 	<table>
-		<caption>중고차 보유 현황</caption>
+		<caption>중고차 판매 현황</caption>
 		<tr>
-			<td class="main">차량코드</td>
-			<td class="main">타이어체크</td>
-			<td class="main">인테리어체크</td>
-			<td class="main">엔진룸체크</td>
-			<td class="main">시동체크</td>
-			<td class="main">외관체크</td>
-			<td class="main">비고</td>
+			<td class="main">구매자아이디</td>
+			<td class="main">구매자이름</td>
+			<td class="main">구매차량코드</td>
+			<td class="main">구매가격</td>
+			<td class="main">할부개월</td>
+			<td class="main">월 할부금</td>
 		</tr>
 		<%for(int i=0; i<list.size(); i++) { %>
 			<tr>
-				<td><%=list.get(i).getL_code() %></td>
-				<td><%=list.get(i).getL_tire() %></td>
-				<td><%=list.get(i).getL_int() %></td>
-				<td><%=list.get(i).getL_egr() %></td>
-				<td><%=list.get(i).getL_run() %></td>
-				<td><%=list.get(i).getL_sc() %></td>
-				<td><a href="<%=path %>/update">수정</a></td>
+				<td><%=list.get(i).getB_id()%></td>
+				<td><%=list.get(i).getB_name() %></td>
+				<td><%=list.get(i).getB_code() %></td>
+				<td><%=list.get(i).getB_cost() %></td>
+				<td><%=list.get(i).getB_month() %></td>
+				<td><%=list.get(i).getB_money() %></td>
 			</tr>
 		<%} %>
 	</table>

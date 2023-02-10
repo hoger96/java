@@ -170,5 +170,78 @@ public class CarDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	}
+	
+	public ArrayList<SoldoutDto> selectSoldout(){
+		
+		dbCon();
+		String sql = " select b_id, b_name, b_code, "
+				+ " to_char(b_cost,'9,999')||'만원', "
+				+ " b_month||'개월', \r\n"
+				+ " round((b_cost/b_month),0)||'만원' "
+				+ " from tbl_buyer_list "
+				+ " order by b_code asc ";
+		ArrayList<SoldoutDto> list = new ArrayList<>();
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				SoldoutDto dto = new SoldoutDto();
+				
+				dto.setB_id(rs.getString(1));
+				dto.setB_name(rs.getString(2));
+				dto.setB_code(rs.getString(3));
+				dto.setB_cost(rs.getString(4));
+				dto.setB_month(rs.getString(5));
+				dto.setB_money(rs.getString(6));
+				
+				list.add(dto);
+			}
+			
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+		return list;
+	}
+	
+	public ArrayList<SortDto> selectSort(){
+		
+		dbCon();
+		String sql = " select c.c_class, to_char(sum(b.b_cost),'99,999')||'만원' "
+				+ " from tbl_car_list c "
+				+ " join tbl_buyer_list b "
+				+ " on c.c_code = b.b_code "
+				+ " group by c.c_class "
+				+ " order by sum(b.b_cost) ";
+		ArrayList<SortDto> list = new ArrayList<>();
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				SortDto dto = new SortDto();
+				
+				dto.setC_class(rs.getString(1));
+				dto.setB_cost(rs.getString(2));
+				
+				list.add(dto);
+			}
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
 }

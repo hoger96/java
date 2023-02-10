@@ -1,14 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="model.SortDto" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
-	String path = request.getContextPath();
+	String path = request.getContextPath();	
+	ArrayList<SortDto> list = (ArrayList<SortDto>)request.getAttribute("list");
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
+<link href="<%=path %>/css/list2.css" rel="stylesheet">
+
 </head>
 <body>
 <header><h1>중고차 판매 ver1.0</h1></header>
@@ -24,13 +30,19 @@
 	</ol>
 </nav>
 <section>
-	<h3>중고차 판매 프로그램</h3>
-	<caption>중고차를 판매하기 위한 프로그램이다</caption>
-	<ol>
-		<li>내용작성</li>
-		<li>내용작성</li>
-		<li>내용작성</li>
-	</ol>
+	<table>
+		<caption>차량종류별 판매현황</caption>
+		<tr>
+			<td class="main">차량종류</td>
+			<td class="main">판매금액</td>
+		</tr>
+		<%for(int i=0; i<list.size(); i++) { %>
+			<tr>
+				<td><%=list.get(i).getC_class()%></td>
+				<td><%=list.get(i).getB_cost() %></td>
+			</tr>
+		<%} %>
+	</table>
 </section>
 <footer><h3>HRD KOREA</h3></footer>
 </body>

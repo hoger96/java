@@ -24,8 +24,9 @@
 <nav>
 	<ol>
 		<li><a href="<%=path%>/newreg">중고차 신규 등록</a></li>
-		<li><a href="<%=path%>/sellreg">중고차 판매 등록</a></li>
-		<li><a href="<%=path%>/saleon">중고차 보유 현황</a></li>
+		<li><a href="<%=path%>/sellreg">차량 판매 등록</a></li>
+		<li><a href="<%=path%>/update">차량 체크사항 등록</a></li>
+		<li><a href="<%=path%>/saleon">차량 체크사항 현황</a></li>
 		<li><a href="<%=path%>/saleoff">중고차 판매 현황</a></li>
 		<li><a href="<%=path%>/sortsale">차량종류별 판매 현황</a></li>
 		<li><a href="index.jsp">홈으로</a></li>

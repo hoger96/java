@@ -30,5 +30,13 @@ public class CarService {
 	public CheckDto selectCode(String l_code) {
 		return dao.selectCode(l_code);
 	}
+	
+	public ArrayList<SoldoutDto> selectSoldout(){
+		return dao.selectSoldout();
+	}
+	
+	public ArrayList<SortDto> selectSort(){
+		return dao.selectSort();
+	}
 }
 
