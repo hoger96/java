@@ -36,6 +36,13 @@ public class RegServlet extends HttpServlet{
 		String c_kilo = request.getParameter("c_kilo");
 		String c_price = request.getParameter("c_price");
 		
+		System.out.println(c_code);
+		System.out.println(c_class);
+		System.out.println(c_name);
+		System.out.println(c_age);
+		System.out.println(c_kilo);
+		System.out.println(c_price);
+		
 		CarDao dao = new CarDao();
 		CarService s = new CarService(dao);
 		NewRegDto dto = new NewRegDto(c_code, c_class, c_name, c_age, c_kilo, c_price);

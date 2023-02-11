@@ -38,5 +38,9 @@ public class CarService {
 	public ArrayList<SortDto> selectSort(){
 		return dao.selectSort();
 	}
+	
+	public void updateChecklist(CheckDto dto) {
+		dao.updateChecklist(dto);
+	}
 }
 

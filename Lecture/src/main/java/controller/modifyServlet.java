@@ -22,6 +22,8 @@ public class modifyServlet extends HttpServlet{
 		LectureDao dao = new LectureDao();
 		LectureService s = new LectureService(dao);
 		String s_id = request.getParameter("s_id");
+		System.out.println(s_id);
+		
 		
 		LectureDto dto = s.selectId(s_id);
 		System.out.println(dto);
@@ -33,7 +35,7 @@ public class modifyServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		String s_id = request.getParameter("s_id");
 		String s_name = request.getParameter("s_name");
@@ -49,6 +51,6 @@ public class modifyServlet extends HttpServlet{
 		ModifyDto dto = new ModifyDto(s_id, s_name, t_id, s_grade, weekday, start_h, end_h );
 		s.lectureUpdate(dto);
 		
-		response.sendRedirect("/Lecture/list");
+		response.sendRedirect("index.jsp");
 	}
 }

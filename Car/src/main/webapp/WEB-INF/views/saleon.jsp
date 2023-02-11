@@ -49,7 +49,7 @@
 				<td><%=list.get(i).getL_egr() %></td>
 				<td><%=list.get(i).getL_run() %></td>
 				<td><%=list.get(i).getL_sc() %></td>
-				<td><a href="<%=path %>/update">수정</a></td>
+				<td><a href="<%=path %>/update?l_code=<%=list.get(i).getL_code()%>">수정</a></td>
 			</tr>
 		<%} %>
 	</table>

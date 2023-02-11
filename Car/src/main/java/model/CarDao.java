@@ -155,16 +155,28 @@ public class CarDao {
 	}
 	
 	public void updateChecklist(CheckDto dto) {
+		
+			System.out.println(dto);
 			
 			dbCon();
 			String sql = " update tbl_check_list "
-					+ " set l_tire=?, l_int=?, l_egr=?,l_run=?,l_se=? "
+					+ " set l_tire=?, l_int=?, l_egr=?,l_run=?,l_sc=? "
 					+ " where l_code=? ";
-			dto = new CheckDto();
 			
 			try {
 				PreparedStatement pst = con.prepareStatement(sql);
 				
+				pst.setString(1, dto.getL_tire());
+				pst.setString(2, dto.getL_int());
+				pst.setString(3, dto.getL_egr());
+				pst.setString(4, dto.getL_run());
+				pst.setString(5, dto.getL_sc());
+				pst.setString(6, dto.getL_code());
+				
+				pst.executeUpdate();
+				
+				pst.close();
+				con.close();
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -243,5 +255,12 @@ public class CarDao {
 		}
 		
 		return list;
+	}
+	public static void main(String[] args) {
+		CarDao dao = new CarDao();
+		CheckDto dto = new CheckDto("20220008","2","2","2","2","2");
+		dao.updateChecklist(dto);
+		
+		System.out.println(dto);
 	}
 }

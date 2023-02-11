@@ -49,7 +49,9 @@
 				<td><%=list.get(i).getWeekday()%></td>
 				<td><%=list.get(i).getStart_h()%></td>
 				<td><%=list.get(i).getEnd_h()%></td>
-				<td><a class="btn" href="<%=path %>/modify">수정</a>/<a class="btn">삭제</a></td>
+				<td>
+					<a class="btn" href="<%=path %>/modify?s_id=<%=list.get(i).getS_id() %>">수정</a>/
+					<a class="btn" href="<%=path %>/delete?s_id=<%=list.get(i).getS_id()%>">삭제</a></td>
 			</tr>
 			<%} %>
 		</table>

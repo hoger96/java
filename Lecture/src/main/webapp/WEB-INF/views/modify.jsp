@@ -13,7 +13,10 @@
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/reg.css" rel="stylesheet">
 <script>
-
+function save(){
+	let frm = document.frm;
+	frm.submit();
+}
 </script>
 </head>
 <body>
@@ -41,7 +44,7 @@
 			<tr>
 				<td class="main">담당강사</td>
 				<td>
-					<select name="t_id" value="<%=dto.getT_id()%>">
+					<select name="t_id">
 						<option value="">선택</option>
 						<option value="1">정국교수</option>
 						<option value="2">뷔교수</option>
@@ -60,12 +63,12 @@
 			<tr>
 				<td class="main">요일</td>
 				<td>
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">월
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">화
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">수
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">목
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">금
-					<input type="radio" name="weekday" value="<%=dto.getWeekday()%>">토
+					<input type="radio" name="weekday" value="M">월
+					<input type="radio" name="weekday" value="TU">화
+					<input type="radio" name="weekday" value="W">수
+					<input type="radio" name="weekday" value="TH">목
+					<input type="radio" name="weekday" value="F">금
+					<input type="radio" name="weekday" value="S">토
 				</td>
 			</tr>
 			<tr>
@@ -90,3 +93,8 @@
 	</footer>
 </body>
 </html>
+
+<script>
+  document.frm.weekday.value="<%=dto.getWeekday().trim()%>" ;
+  document.frm.t_id.value="<%=dto.getT_id()%>";
+</script>

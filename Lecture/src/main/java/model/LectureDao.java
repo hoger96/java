@@ -117,6 +117,7 @@ public class LectureDao {
 			
 			if(rs.next()) {
 				dto = new LectureDto();
+				
 				dto.setS_id(rs.getString(1));
 				dto.setS_name(rs.getString(2));
 				dto.setT_id(rs.getString(3));
@@ -164,4 +165,24 @@ public class LectureDao {
 		}
 	}
 	
+	public void  delete(String s_id) {
+		dbCon();
+		String sql = " delete tbl_course "
+					+ " where s_id=? ";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1,s_id);
+			
+			pst.executeUpdate();
+			
+			pst.close();
+			con.close();
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

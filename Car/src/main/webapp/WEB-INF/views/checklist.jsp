@@ -44,7 +44,7 @@
 		<tr>
 			<td class="main">타이어체크</td>
 			<td>
-				<select name="l_tire" value="<%=dto.getL_tire() %>">
+				<select name="l_tire">
 					<option value="1">이상무</option>
 					<option value="2">교체필요</option>
 				</select>
@@ -97,4 +97,11 @@
 </section>
 <footer><h3>HRD KOREA</h3></footer>
 </body>
+<script>
+	document.frm.l_tire.value = <%=dto.getL_tire() %>;
+	document.frm.l_int.value = <%=dto.getL_int() %>;
+	document.frm.l_egr.value = <%=dto.getL_egr() %>;
+	document.frm.l_run.value = <%=dto.getL_run() %>;
+	document.frm.l_sc.value = <%=dto.getL_sc() %>;
+</script>
 </html>

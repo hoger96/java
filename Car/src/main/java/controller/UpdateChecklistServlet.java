@@ -39,5 +39,21 @@ public class UpdateChecklistServlet extends HttpServlet{
 		String l_egr = request.getParameter("l_egr");
 		String l_run = request.getParameter("l_run");
 		String l_sc = request.getParameter("l_sc");
+		System.out.println(l_code);
+		System.out.println(l_tire);
+		System.out.println(l_int);
+		System.out.println(l_egr);
+		System.out.println(l_run);
+		System.out.println(l_sc);
+		
+		CarDao dao = new CarDao();
+		CarService s = new CarService(dao);
+		CheckDto dto = new CheckDto(l_code, l_tire, l_int, l_egr, l_run, l_sc);
+		
+		
+		System.out.println(dto);
+		s.updateChecklist(dto);
+		
+		response.sendRedirect("index.jsp");
 	}
 }

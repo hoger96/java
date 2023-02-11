@@ -30,4 +30,8 @@ public class LectureService {
 	public LectureDto selectId(String s_id) {
 		return dao.selectId(s_id);
 	}
+	
+	public void delete(String s_id) {
+		dao.delete(s_id);
+	}
 }
