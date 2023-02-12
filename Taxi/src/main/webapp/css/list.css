@@ -1,0 +1,20 @@
+@charset "UTF-8";
+section caption{
+	margin-bottom: 20px;
+}
+
+table, td{
+	border:1px solid black;
+	border-collapse: collapse;
+}
+table{
+	width:1000px;
+	margin:50px auto;
+}
+.main{
+	font-weight: bold;
+}
+section a{
+	text-decoration: none;
+	color:black;
+}
