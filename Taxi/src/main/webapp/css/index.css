@@ -1,0 +1,28 @@
+@charset "UTF-8";
+header{
+	padding:5px;
+	background-color: blue;
+	text-align:center;
+}
+nav{
+	padding:3px;
+	background-color: navy;
+}
+nav ol{
+	display:flex;
+	list-style: none;
+}
+nav a{
+	text-decoration: none;
+	color:white;
+	margin-right:15px;
+}
+section{
+	height:500px;
+	padding:20px;
+}
+footer{
+	padding:3px;
+	background-color: skyblue;
+	text-align: center;
+}

@@ -1,8 +1,0 @@
-INDEX VERSION 1.131+C:\Users\김영현\OneDrive\바탕 화면\시험준비\.metadata\.plugins\org.eclipse.jdt.core
-2968527515.index
-3376892514.index
-2223612377.index
-16435694.index
-3313188624.index
-1865797976.index
-114438402.index
