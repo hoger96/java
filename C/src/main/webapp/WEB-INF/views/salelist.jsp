@@ -13,24 +13,6 @@
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/list.css" rel="stylesheet">
-<script>
-	function save(){
-		let frm = document.frm;
-		if(frm.pcode.value == ""){
-			alert("상품코드를 입력하세요");
-			frm.pcode.focus();
-		}else if(frm.scode.value == ""){
-			alert("매장코드를 입력하세요");
-			frm.scode.focus();
-		}else if(frm.amount.value == ""){
-			alert("판매수량을 입력하세요");
-			frm.amount.focus();
-		}else{
-			alert("성공");
-			frm.submit();
-		}
-	}
-</script>
 </head>
 <body>
 <header>

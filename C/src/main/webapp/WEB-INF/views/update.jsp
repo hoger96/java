@@ -25,7 +25,7 @@
 			alert("판매수량을 입력하세요");
 			frm.amount.focus();
 		}else{
-			alert("성공");
+			alert("수정성공");
 			frm.submit();
 		}
 	}
