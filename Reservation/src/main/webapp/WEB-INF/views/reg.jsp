@@ -45,8 +45,9 @@ function save(){
 <nav>
 	<ol>
 		<li><a href="<%=path%>/reg">백신예약</a></li>
-		<li><a href="<%=path%>/list">백신접종조회</a></li>
-		<li><a href="<%=path%>/area">백신지역별 접종 횟수 조회</a></li>
+		<li><a href="<%=path%>/look">백신 접종 조회</a></li>
+		<li><a href="<%=path%>/area">백신 지역별 접종 횟수 조회</a></li>
+		<li><a href="<%=path%>/list">백신 접종 현황</a></li>
 		<li><a href="<%=path%>/reg">홈으로</a></li>
 	</ol>
 </nav>

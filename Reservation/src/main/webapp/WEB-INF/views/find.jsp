@@ -9,6 +9,13 @@
 	String path = request.getContextPath();
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
+<link href="<%=path %>/css/find.css" rel="stylesheet">
+<script>
+function find(){
+	let frm = document.frm;
+	
+}
+</script>
 </head>
 <body>
 <header>
@@ -24,7 +31,22 @@
 	</ol>
 </nav>
 <section>
-
+<form name="frm" method="post" action="<%=path %>/look">
+	<table>
+		<tr>
+			<td>예약번호를 입력하세요</td>
+		</tr>
+		<tr>
+			<td><input type="text" name="rev_id"></td>
+		</tr>
+		<tr>
+			<td class="main">
+				<input type="button" onclick="find()" value="확인">
+				<input type="reset" value="취소">
+			</td>
+		</tr>
+	</table>
+</form>
 </section>
 <footer>
 	<h3>HRD KOREA</h3>
