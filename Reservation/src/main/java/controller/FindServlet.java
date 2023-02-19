@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.RegDto;
 import model.ResDao;
 import model.ResService;
 
@@ -28,5 +29,14 @@ public class FindServlet extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		
 		String rev_id = request.getParameter("rev_id");
+		System.out.println(rev_id);
+		
+		ResDao dao = new ResDao();
+		ResService s = new ResService(dao);
+		RegDto dto = s.selectRes(rev_id);
+		
+		request.setAttribute("dto", dto);
+		request.getRequestDispatcher("WEB-INF/views/check.jsp").forward(request, response);
+		
 	}
 }

@@ -13,7 +13,7 @@
 <script>
 function find(){
 	let frm = document.frm;
-	
+	frm.submit();
 }
 </script>
 </head>

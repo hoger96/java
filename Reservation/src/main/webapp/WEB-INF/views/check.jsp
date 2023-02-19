@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.RegDto" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,36 +8,10 @@
 <title>Insert title here</title>
 <%
 	String path = request.getContextPath();
+	RegDto dto = (RegDto)request.getAttribute("dto");
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/reg.css" rel="stylesheet">
-<script>
-function save(){
-	let frm = document.frm;
-	if(frm.rev_id.value == ""){
-		alert("예약번호를 입력하세요");
-		frm.rev_id.focus();
-	}else if(frm.join_no.value == ""){
-		alert("접수자번호를 입력하세요");
-		frm.join_no.focus();
-	}else if(frm.kind.value == ""){
-		alert("접종백신종류를 선택하세요");
-		frm.kind.focus();
-	}else if(frm.rev_dt.value == ""){
-		alert("접종예약일자를 입력하세요");
-		frm.rev_dt.focus();
-	}else if(frm.certification.value == ""){
-		alert("본인인증방법을 선택하세요");
-		frm.certification.focus();
-	}else if(frm.ck.value == ""){
-		alert("접종완료여부를 선택하세요");
-		frm.ck.focus();
-	}else{
-		alert("등록완료");
-		frm.submit();
-	}
-}
-</script>
 </head>
 <body>
 <header>
@@ -52,16 +27,16 @@ function save(){
 	</ol>
 </nav>
 <section>
-<form name="frm" method="post" action="<%=path %>/reg">
+<form name="frm" method="post" action="<%=path %>/update">
 <table>
 	<caption>백신접종 예약</caption>
 	<tr>
 		<td class="main">접종예약번호</td>
-		<td><input type="text" name="rev_id"></td>
+		<td><input type="text" name="rev_id" value="<%=dto.getRev_id()%>"></td>
 	</tr>
 	<tr>
 		<td class="main">접수자번호</td>
-		<td><input type="text" name="join_no"></td>
+		<td><input type="text" name="join_no" value="<%=dto.getJoin_no()%>"></td>
 	</tr>
 	<tr>
 		<td class="main">접종백신종류</td>
@@ -79,7 +54,7 @@ function save(){
 			접종예약일자<br>
 			(예시:2021-04-01)
 		</td>
-		<td><input type="text" name="rev_dt"></td>
+		<td><input type="text" name="rev_dt" value="<%=dto.getRev_dt()%>"></td>
 	</tr>
 	<tr>
 		<td class="main">본인인증 방법</td>
@@ -96,7 +71,7 @@ function save(){
 		<td class="main">접종완료여부</td>
 		<td>
 			<input type="radio" name="ck" value="Y">Y
-			<input type="radio" name="ck" value="N" checked="checked">N
+			<input type="radio" name="ck" value="N">N
 		</td>
 	</tr>
 	<tr>
@@ -112,4 +87,9 @@ function save(){
 	<h3>HRD KOREA</h3>
 </footer>
 </body>
+<script>
+document.frm.kind.value = "<%=dto.getKind()%>";
+document.frm.certification.value = "<%=dto.getCertification()%>";
+document.frm.ck.value = "<%=dto.getCk()%>";
+</script>
 </html>

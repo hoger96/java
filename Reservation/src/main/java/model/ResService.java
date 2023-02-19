@@ -14,4 +14,8 @@ public class ResService {
 	public void insert(RegDto dto) {
 		dao.insert(dto);
 	}
+	
+	public RegDto selectRes(String rev_id) {
+		return dao.selectRes(rev_id);
+	}
 }
