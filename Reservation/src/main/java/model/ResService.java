@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class ResService {
 
 	ResDao dao;
@@ -25,5 +27,9 @@ public class ResService {
 	
 	public void update(RegDto dto) {
 		dao.update(dto);
+	}
+	
+	public ArrayList<AreaDto> selectArea(){
+		return dao.selectArea();
 	}
 }

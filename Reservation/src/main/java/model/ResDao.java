@@ -147,6 +147,26 @@ public class ResDao {
 				+ " order by count(r.ck) desc ";
 		ArrayList<AreaDto> list = new ArrayList<>();
 		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				AreaDto dto = new AreaDto();
+				
+				dto.setRegion(rs.getString(1));
+				dto.setCount(rs.getString(2));
+				
+				list.add(dto);
+			}
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return list;
 	}
 	
