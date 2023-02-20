@@ -170,6 +170,45 @@ public class ResDao {
 		return list;
 	}
 	
+	public ArrayList<NowDto> selectNow(){
+		dbCon();
+		String sql = " select r.rev_id, j.name, j.tel, "
+				+ " decode(r.kind,'H','화이자','M','모더나','Y','얀센'), "
+				+ " to_char(r.rev_dt, 'yyyy/mm/dd'), "
+				+ " decode(r.certification,'C','핸드폰','I','아이핀','P','공인인증'), "
+				+ " decode(r.ck,'Y','완료','N','미완료') "
+				+ " from tbl_join_12 j "
+				+ " join tbl_reservation r "
+				+ " on r.join_no = j.id ";
+		ArrayList<NowDto> list = new ArrayList<>();
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				NowDto dto = new NowDto();
+				
+				dto.setRev_id(rs.getString(1));
+				dto.setName(rs.getString(2));
+				dto.setTel(rs.getString(3));
+				dto.setKind(rs.getString(4));
+				dto.setRev_dt(rs.getString(5));
+				dto.setCertification(rs.getString(6));
+				dto.setCk(rs.getString(7));
+				
+				list.add(dto);
+			}
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		ResDao dao = new ResDao();
 		String rev_id = "1111";

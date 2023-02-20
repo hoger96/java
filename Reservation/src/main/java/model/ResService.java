@@ -32,4 +32,8 @@ public class ResService {
 	public ArrayList<AreaDto> selectArea(){
 		return dao.selectArea();
 	}
+	
+	public ArrayList<NowDto> selectNow(){
+		return dao.selectNow();
+	}
 }
