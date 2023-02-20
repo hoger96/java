@@ -20,7 +20,7 @@
 		<li><a href="<%=path%>/look">백신 접종 조회</a></li>
 		<li><a href="<%=path%>/area">백신 지역별 접종 횟수 조회</a></li>
 		<li><a href="<%=path%>/list">백신 접종 현황</a></li>
-		<li><a href="<%=path%>/reg">홈으로</a></li>
+		<li><a href="index.jsp">홈으로</a></li>
 	</ol>
 </nav>
 <section>

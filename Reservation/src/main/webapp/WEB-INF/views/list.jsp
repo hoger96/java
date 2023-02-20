@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.AreaDto" %>
+<%@ page import="model.NowDto" %>
 <%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <%
 	String path = request.getContextPath();
-	ArrayList<AreaDto> list = (ArrayList<AreaDto>)request.getAttribute("list");
+	ArrayList<NowDto> list = (ArrayList<NowDto>)request.getAttribute("list");
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/list.css" rel="stylesheet">
@@ -31,13 +31,23 @@
 <table>
 	<caption>지역별 백신예약 인원수</caption>
 	<tr>
-		<td class="main">지역</td>
-		<td class="main">인원수</td>
+		<td class="main">예약번호</td>
+		<td class="main">이름</td>
+		<td class="main">전화번호</td>
+		<td class="main">백신종류</td>
+		<td class="main">예약일자</td>
+		<td class="main">본인인증</td>
+		<td class="main">접종상태</td>
 	</tr>
 	<%for( int i=0; i<list.size(); i++ ) {%>
 	<tr>
-		<td><%=list.get(i).getRegion()%></td>
-		<td><%=list.get(i).getCount()%></td>
+		<td><%=list.get(i).getRev_id()%></td>
+		<td><%=list.get(i).getName()%></td>
+		<td><%=list.get(i).getTel()%></td>
+		<td><%=list.get(i).getKind()%></td>
+		<td><%=list.get(i).getRev_dt()%></td>
+		<td><%=list.get(i).getCertification()%></td>
+		<td><%=list.get(i).getCk()%></td>
 	</tr>
 	<%} %>
 </table>
