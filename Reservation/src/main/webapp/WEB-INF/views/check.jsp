@@ -12,6 +12,11 @@
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/reg.css" rel="stylesheet">
+<script>
+function save(){
+	frm.submit();
+}
+</script>
 </head>
 <body>
 <header>

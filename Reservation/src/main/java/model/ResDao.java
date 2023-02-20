@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ResDao {
 
@@ -84,6 +85,69 @@ public class ResDao {
 			e.printStackTrace();
 		}
 		return dto;
+	}
+	
+	public SeqDto selectSeq() {
+		dbCon();
+		String sql = " select rev_id.nextval "
+					+ " from dual ";
+		SeqDto dto = new SeqDto();
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				dto.setSeq(rs.getString(1));
+			}
+			rs.close();
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	public void update(RegDto dto) {
+		dbCon();
+		String sql = " update tbl_reservation "
+					+ " set join_no=?, kind=?, rev_dt=?, certification=?, ck=? "
+					+ " where rev_id=? ";
+		
+		try {
+			PreparedStatement pst = con.prepareStatement(sql);
+			
+			pst.setString(1, dto.getJoin_no());
+			pst.setString(2, dto.kind);
+			pst.setString(3, dto.getRev_dt());
+			pst.setString(4, dto.getCertification());
+			pst.setString(5, dto.getCk());
+			pst.setString(6, dto.getRev_id());
+			
+			pst.executeUpdate();
+			
+			pst.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<AreaDto> selectArea(){
+		dbCon();
+		String sql = " select decode(j.region,'K','경기','P','부산','S','서울'), count(r.ck) "
+				+ " from tbl_reservation r "
+				+ " join tbl_join_12 j "
+				+ " on r.join_no = j.id "
+				+ " where r.ck = 'Y' "
+				+ " group by j.region "
+				+ " order by count(r.ck) desc ";
+		ArrayList<AreaDto> list = new ArrayList<>();
+		
+		return list;
 	}
 	
 	public static void main(String[] args) {

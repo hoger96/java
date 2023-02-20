@@ -18,4 +18,12 @@ public class ResService {
 	public RegDto selectRes(String rev_id) {
 		return dao.selectRes(rev_id);
 	}
+	
+	public SeqDto selectSeq() {
+		return dao.selectSeq();
+	}
+	
+	public void update(RegDto dto) {
+		dao.update(dto);
+	}
 }

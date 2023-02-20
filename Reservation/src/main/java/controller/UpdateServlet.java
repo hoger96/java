@@ -11,22 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.RegDto;
 import model.ResDao;
 import model.ResService;
-import model.SeqDto;
 
-@WebServlet("/reg")
-public class RegServlet extends HttpServlet{
+@WebServlet("/update")
+public class UpdateServlet extends HttpServlet{
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ResDao dao = new ResDao();
-		ResService s = new ResService(dao);
-		SeqDto dto = s.selectSeq();
-		
-		request.setAttribute("dto", dto);
-		request.getRequestDispatcher("WEB-INF/views/reg.jsp").forward(request, response);
-	}
-	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -49,9 +37,8 @@ public class RegServlet extends HttpServlet{
 		ResDao dao = new ResDao();
 		ResService s = new ResService(dao);
 		RegDto dto = new RegDto(rev_id, join_no, kind, rev_dt, certification, ck);
-		s.insert(dto);
+		s.update(dto);
 		
 		response.sendRedirect("index.jsp");
-		
 	}
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.SeqDto" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <title>Insert title here</title>
 <%
 	String path = request.getContextPath();
+	SeqDto dto = (SeqDto)request.getAttribute("dto");
 %>
 <link href="<%=path %>/css/index.css" rel="stylesheet">
 <link href="<%=path %>/css/reg.css" rel="stylesheet">
@@ -57,7 +59,7 @@ function save(){
 	<caption>백신접종 예약</caption>
 	<tr>
 		<td class="main">접종예약번호</td>
-		<td><input type="text" name="rev_id"></td>
+		<td><input type="text" name="rev_id" value="<%=dto.getSeq()%>" readonly="readonly"></td>
 	</tr>
 	<tr>
 		<td class="main">접수자번호</td>
