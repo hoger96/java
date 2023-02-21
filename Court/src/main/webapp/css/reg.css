@@ -6,8 +6,9 @@ table{
 	
 }
 section caption{
-	text-align: center;
-	margin-botton:20px;
+	font-size:18px;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 td{
 	border:1px solid black;
